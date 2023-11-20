@@ -6,8 +6,15 @@ const search = document.querySelector('.btn');
 
 
 search.addEventListener('click', function() {
-    // fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${input.value}&limit=1&appid=${apiKey}`)
-    // .then(Response => Response.json())
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${input.value}&limit=1&appid=${apiKey}`)
+    .then(Response => Response.json())
+    .then(data => {
+        const lat = data[0].lat;
+        const lon = data[0].lon;
+        
+        weather(lat, lon);
+        forecast(lat, lon);
+    })
 
     console.log(input.value);
    
