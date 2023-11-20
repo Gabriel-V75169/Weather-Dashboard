@@ -13,7 +13,6 @@ search.addEventListener('click', function() {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=imperial&limit=1&appid=${apiKey}`)
     .then(Response => Response.json())
     .then(data => {
-        console.log(data);
         const cityValue = data['name'];
         const tempValue = data['main']['temp'];
         const windvalue = data['wind']['speed'];
